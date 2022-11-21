@@ -1,7 +1,12 @@
 import { Grid } from '@nextui-org/react'
 import GoogleMap from 'components/GoogleMap';
+import Pin from 'components/Pin';
+import useData from 'hooks/useData';
 
 const Home = () => {
+  const {data} = useData()
+
+  console.log(data)
 
   return (
     <Grid.Container css={{
@@ -18,6 +23,9 @@ const Home = () => {
       }} style={{
         flex: 1
       }}>
+        {data?.map((item, index) => (
+          <Pin key={index} {...item} />
+        ))}
       </GoogleMap>
     </Grid.Container>
   )
