@@ -6,7 +6,7 @@ const handler = (req: NextApiRequest, res: NextApiResponse<Property[]>) => {
   res.status(200).json(
     Array.from(new Array(20)).map((item) => {
       const [lat, lng] = faker.address.nearbyGPSCoordinate(
-        [Number(req.query.lat), Number(151.23064)],
+        [Number(req.query.lat), Number(req.query.lng)],
         2
       );
 
